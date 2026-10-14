@@ -1,3 +1,6 @@
+# checks the entire loaded policy rather than just one check
+# provides a second validation layer
+
 from app.check_validator import validate_check
 
 def validate_policy(policy):

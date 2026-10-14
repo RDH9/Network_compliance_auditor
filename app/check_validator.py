@@ -1,3 +1,5 @@
+# verifies all policy checks
+# prevents malformed policy rules from reaching the device connection layer
 
 def validate_check(check):
 

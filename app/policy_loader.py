@@ -1,3 +1,6 @@
+#parses yaml file, confirms the policy structure and returns a parsed dictionary
+# does this because the application cannot work directly with a yaml file
+
 import yaml
 
 def load_policy(filepath: str):
