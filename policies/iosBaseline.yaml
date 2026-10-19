@@ -1,0 +1,44 @@
+name: ios_baseline
+version: 1
+platform: cisco_ios
+
+checks:
+  - id: ssh_enabled
+    description: SSH must be enabled for management access
+    command: show ip ssh
+    expected:
+      contains: "SSH Enabled"
+    severity: high
+    remediation: Enable SSH and configure secure remote management.
+
+  - id: telnet_disabled
+    description: Telnet must not be permitted on VTY lines
+    command: show running-config | section line vty
+    expected:
+      not_contains: "transport input telnet"
+    severity: high
+    remediation: Disable Telnet and allow SSH-only remote management.
+
+  - id: ssh_version_2
+    description: SSH version 2 must be configured
+    command: show ip ssh
+    expected:
+      contains: "version 2.0"
+    severity: high
+    remediation: Configure SSH version 2.
+
+  - id: http_server_disabled
+    description: The insecure HTTP server must be disabled
+    command: show running-config | include ip http server
+    expected:
+      not_contains: "ip http server"
+    severity: medium
+    remediation: Disable the HTTP management server.
+
+  - id: password_encryption
+    description: Password encryption must be enabled
+    command: show running-config | include service password-encryption
+    expected:
+      contains: "service password-encryption"
+    severity: medium
+    remediation: Enable password encryption.

@@ -1,5 +1,5 @@
-from device_connection import execute_command
-from evaluate_check import evaluate_check
+from app.device_connection import execute_command
+from app.evaluate_check import evaluate_check
 
 def run_policy_checks(connection, policy):
     results = []
