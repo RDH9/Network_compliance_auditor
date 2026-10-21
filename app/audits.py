@@ -3,7 +3,6 @@ from app.policy_validator import validate_policy
 from app.device_connection import connect_device 
 from app.policy_check import run_policy_checks
 import json
-import file
 
 def run_device_audit(device_details, policy):
     connection = None
